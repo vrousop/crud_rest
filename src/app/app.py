@@ -2,33 +2,14 @@ import json
 import vcf
 from src import __VCF_FILE__
 from src.app.libs import retrieve_json, json_toXML, retrieve_user_data
-from flask import Flask, Response, request, jsonify, url_for
+import src.app.error_handlers as error_handlers
+from flask import Flask, Response, request
 from flask_cors import CORS
 import xml.etree.cElementTree as e
 
+
 app = Flask(__name__)
-
-@app.errorhandler(406)
-def not_accept(error=None):
-    message = {
-            'status': 406,
-            'message': 'Not Acceptable' 
-    }
-    resp = jsonify(message)
-    resp.status_code = 406
-
-    return resp
-
-@app.errorhandler(404)
-def not_found(error=None):
-    message = {
-            'status': 404,
-            'message': 'Not Found' 
-    }
-    resp = jsonify(message)
-    resp.status_code = 404
-
-    return resp
+app.register_blueprint(error_handlers.blueprint)
 
 @app.route('/retrieve_data/')
 def get_all_data():
@@ -46,7 +27,7 @@ def get_all_data():
     elif accept == 'application/xml':
         res = Response(response=json_toXML(payload_json), status=200, mimetype="application/xml")
     else:
-        res= not_found()
+        res= error_handlers.not_accept()
     return  res
     
 
@@ -54,7 +35,7 @@ def get_all_data():
 def get_user_data(id):
     
     data = retrieve_user_data(id)
-    res = Response(response=json.dumps(data), status=200, mimetype="application/json") if len(data)>0 else not_found()
+    res = Response(response=json.dumps(data), status=200, mimetype="application/json") if len(data)>0 else error_handlers.not_found()
     return res
 
 
