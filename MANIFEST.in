@@ -1,0 +1,2 @@
+# For non python files you want to use
+include package/data/*
