@@ -16,7 +16,7 @@ setup(
     packages=find_packages(),
     zip_safe=False,
     install_requires=requirements(),
-    scripts=[],
+    scripts=['src/app/runtest.py'],
     entry_points={
         'console_scripts': [
             'run = src.app.app:main'

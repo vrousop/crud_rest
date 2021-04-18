@@ -115,3 +115,5 @@ env*
 # vscode
 .vscode
 *.vcf
+
+src/app/runtest.py

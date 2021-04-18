@@ -1,0 +1,44 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "description": "",
+    "examples": [
+        {
+            "CHROM": "chr1",
+            "POS": 1000,
+            "ALT": "A",
+            "REF": "G",
+            "ID": "rs123"
+        }
+    ],
+    "required": [
+        "CHROM",
+        "POS",
+        "ALT",
+        "REF",
+        "ID"
+    ],
+    "title": "The root",
+    "type": "object",
+    "properties": {
+        "CHROM": {
+            "pattern": "^chr([1-9][0-2]?|[XYM])$",
+            "type": "string"
+        },
+        "POS": {
+            "type": "integer"
+        },
+        "ALT": {
+            "pattern": "^[ACGT.]$",
+            "type": "string"
+        },
+        "REF": {
+            "pattern": "^[ACGT.]$",
+            "type": "string"
+        },
+        "ID": {
+            "pattern": "^rs[0-9]+$",
+            "type": "string"
+        }
+    },
+    "additionalProperties": false
+}

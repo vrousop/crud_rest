@@ -9,3 +9,5 @@ __PACKAGE_DIR__ = os.path.dirname(os.path.realpath(__file__))
 __DATA__ = os.path.join(__PACKAGE_DIR__, 'data')
 
 __VCF_FILE__ = os.path.join(__DATA__, 'NA12877_API_10.vcf')
+
+__SCHEMA__ = os.path.join(__DATA__, 'schema.json')

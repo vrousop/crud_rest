@@ -24,3 +24,26 @@ def not_found(error=None):
     resp.status_code = 404
 
     return resp
+
+@blueprint.app_errorhandler(403)
+def not_permission(error=None):
+    message = {
+            'status': 403,
+            'message': 'Permission Denied' 
+    }
+    resp = jsonify(message)
+    resp.status_code = 403
+
+    return resp
+
+
+@blueprint.app_errorhandler(400)
+def bad_request(error=None):
+    message = {
+            'status': 400,
+            'message': 'Invalid JSON' 
+    }
+    resp = jsonify(message)
+    resp.status_code = 400
+
+    return resp
