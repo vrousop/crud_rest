@@ -59,13 +59,19 @@ def write_new_record(record, vcf_object):
     vcf_object.write()
 
 def update_record(user_id, record, vcf_object):
-    index = vcf_object.df.index[vcf_object.df['ID'] == user_id]
+    index = vcf_object.df.index[vcf_object.df['ID'] == user_id].to_list()
+
     for key in record.keys():
         vcf_object.df.loc[index, key] = record.get(key)
     vcf_object.write()
 
 
 def remove_record(user_id, vcf_object):
-    index = vcf_object.df.index[vcf_object.df['ID'] == user_id]
-    vcf_object.df = vcf_object.df.drop([index[0]])
+    index = vcf_object.df.index[vcf_object.df['ID'] == user_id].to_list()
+    vcf_object.df = vcf_object.df.drop(index)
     vcf_object.write()
+
+
+def check_if_record(user_id, vcf_object):
+    index = vcf_object.df.index[vcf_object.df['ID'] == user_id].to_list()
+    return True if len(index) else False

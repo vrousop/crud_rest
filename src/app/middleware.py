@@ -2,7 +2,7 @@ import json
 from functools import wraps
 from jsonschema import validate
 from flask import Response, request, g
-from src.app.error_handlers import not_permission, not_accept, bad_request
+from src.app.error_handlers import not_permission, not_accept, bad_request, not_found
 from src.app.libs import retrieve_json, json_toXML
 
 def authorization(secret):
@@ -53,7 +53,7 @@ def acceptjson(vcf_object):
                     vcf_object
                     )    
 
-            if request.headers.get("Accept", '*/*') in ['*/*', 'application/json']:
+            if request.headers.get('Accept', '*/*') in ['*/*', 'application/json']:
                 # g.output = Response(response=json.dumps(g.payload_json), status=200, mimetype="application/json")
                 return Response(response=json.dumps(g.payload_json), status=200, mimetype="application/json")
             return func()
@@ -63,23 +63,23 @@ def acceptjson(vcf_object):
 
 def validate_json(func):
     @wraps(func)
-    def wrapper(*args, **kw):
+    def wrapper(*args, **kwargs):
         try:
             request.json
         except:
             return bad_request()  
-        return func(*args, **kw)
+        return func(*args, **kwargs)
     return wrapper
 
 
 def validate_schema(schema):
     def decorator(func):
         @wraps(func)
-        def wrapper(*args, **kw):
+        def wrapper(*args, **kwargs):
             try:
                 validate(request.json, schema)
             except:
                 return bad_request()         
-            return func(*args, **kw)
+            return func(*args, **kwargs)
         return wrapper
     return decorator

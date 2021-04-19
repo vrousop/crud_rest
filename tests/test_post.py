@@ -19,7 +19,8 @@ class TestPostData(BaseCase):
                                 headers={'Content-Type': 'application/json', 'x-api-key':'Th1s1ss3cr3t'}, 
                                 data=json.dumps(body))
         expected ={ 
-            'message':'Created'
+            'message':'Created', 
+            'status':201
         }
 
         self.assertEqual(expected, response.json)

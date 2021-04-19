@@ -1,0 +1,245 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "http://example.com/example.json",
+    "type": "object",
+    "title": "The root schema",
+    "description": "The root schema comprises the entire JSON document.",
+    "default": {},
+    "examples": [
+        {
+            "previous_url": "http://0.0.0.0:5000/retrieve_data/?page=1&limit=2",
+            "next_url": "http://0.0.0.0:5000/retrieve_data/?page=3&limit=2",
+            "data": [
+                {
+                    "CHROM": "chr1",
+                    "POS": "13118",
+                    "ID": "rs62028691",
+                    "REF": "A",
+                    "ALT": "G",
+                    "QUAL": "736.77",
+                    "FILTER": "PASS",
+                    "INFO": "AC=1;AF=0.5;AN=2;BaseQRankSum=0.966;ClippingRankSum=0;DANN_score=0.317087;DP=26;ExcessHet=3.0103;FS=0;Gene=DDX11L1,LOC102725121;MLEAC=1;MLEAF=0.5;MQ=29.19;MQRankSum=-3.167;QD=28.34;ReadPosRankSum=1.114;SOR=0.941;function=intronic;gnomadGenomesAC=15338;gnomadGenomesAN=28396;gnomadGenomes_AC_Hom=1779;gnomadGenomes_AF=0.541135",
+                    "FORMAT": "GT:AB:AD:DP:GQ:PL:SAC",
+                    "NA12877 single 20180302": "0/1:0.730769:7,19:26:99:765,0,361:2,5,5,14"
+                },
+                {
+                    "CHROM": "chr1",
+                    "POS": "13656",
+                    "ID": "rs1263393206",
+                    "REF": "CAG",
+                    "ALT": "C",
+                    "QUAL": "196.73",
+                    "FILTER": "PASS",
+                    "INFO": "AC=1;AF=0.5;AN=2;BaseQRankSum=-3.067;ClippingRankSum=.;DP=12;ExcessHet=3.0103;FS=0;Gene=DDX11L1,LOC102725121;MLEAC=1;MLEAF=0.5;MQ=24.17;MQRankSum=-0.825;QD=16.39;ReadPosRankSum=0.307;SOR=0.693;function=non-coding exon,intronic,splicing,splicing-ACMG;gnomadExomes_AC=670;gnomadExomes_AC_Hemi=0;gnomadExomes_AC_Hom=20;gnomadExomes_AF=0.0295331;gnomadExomes_AN=23940;gnomadGenomesAC=13044;gnomadGenomesAN=26616;gnomadGenomes_AC_Hom=99;gnomadGenomes_AF=0.489766",
+                    "FORMAT": "GT:AB:AD:DP:GQ:PL:SAC",
+                    "NA12877 single 20180302": "0/1:0.5:6,6:12:99:234,0,260:1,5,1,5"
+                }
+            ]
+        }
+    ],
+    "required": [
+        "previous_url",
+        "next_url",
+        "data"
+    ],
+    "properties": {
+        "previous_url": {
+            "$id": "#/properties/previous_url",
+            "type": "string",
+            "title": "The previous_url schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "http://0.0.0.0:5000/retrieve_data/?page=1&limit=2"
+            ]
+        },
+        "next_url": {
+            "$id": "#/properties/next_url",
+            "type": "string",
+            "title": "The next_url schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "http://0.0.0.0:5000/retrieve_data/?page=3&limit=2"
+            ]
+        },
+        "data": {
+            "$id": "#/properties/data",
+            "type": "array",
+            "title": "The data schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": [],
+            "examples": [
+                [
+                    {
+                        "CHROM": "chr1",
+                        "POS": "13118",
+                        "ID": "rs62028691",
+                        "REF": "A",
+                        "ALT": "G",
+                        "QUAL": "736.77",
+                        "FILTER": "PASS",
+                        "INFO": "AC=1;AF=0.5;AN=2;BaseQRankSum=0.966;ClippingRankSum=0;DANN_score=0.317087;DP=26;ExcessHet=3.0103;FS=0;Gene=DDX11L1,LOC102725121;MLEAC=1;MLEAF=0.5;MQ=29.19;MQRankSum=-3.167;QD=28.34;ReadPosRankSum=1.114;SOR=0.941;function=intronic;gnomadGenomesAC=15338;gnomadGenomesAN=28396;gnomadGenomes_AC_Hom=1779;gnomadGenomes_AF=0.541135",
+                        "FORMAT": "GT:AB:AD:DP:GQ:PL:SAC",
+                        "NA12877 single 20180302": "0/1:0.730769:7,19:26:99:765,0,361:2,5,5,14"
+                    },
+                    {
+                        "CHROM": "chr1",
+                        "POS": "13656",
+                        "ID": "rs1263393206",
+                        "REF": "CAG",
+                        "ALT": "C",
+                        "QUAL": "196.73",
+                        "FILTER": "PASS",
+                        "INFO": "AC=1;AF=0.5;AN=2;BaseQRankSum=-3.067;ClippingRankSum=.;DP=12;ExcessHet=3.0103;FS=0;Gene=DDX11L1,LOC102725121;MLEAC=1;MLEAF=0.5;MQ=24.17;MQRankSum=-0.825;QD=16.39;ReadPosRankSum=0.307;SOR=0.693;function=non-coding exon,intronic,splicing,splicing-ACMG;gnomadExomes_AC=670;gnomadExomes_AC_Hemi=0;gnomadExomes_AC_Hom=20;gnomadExomes_AF=0.0295331;gnomadExomes_AN=23940;gnomadGenomesAC=13044;gnomadGenomesAN=26616;gnomadGenomes_AC_Hom=99;gnomadGenomes_AF=0.489766",
+                        "FORMAT": "GT:AB:AD:DP:GQ:PL:SAC",
+                        "NA12877 single 20180302": "0/1:0.5:6,6:12:99:234,0,260:1,5,1,5"
+                    }
+                ]
+            ],
+            "additionalItems": true,
+            "items": {
+                "$id": "#/properties/data/items",
+                "anyOf": [
+                    {
+                        "$id": "#/properties/data/items/anyOf/0",
+                        "type": "object",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": {},
+                        "examples": [
+                            {
+                                "CHROM": "chr1",
+                                "POS": "13118",
+                                "ID": "rs62028691",
+                                "REF": "A",
+                                "ALT": "G",
+                                "QUAL": "736.77",
+                                "FILTER": "PASS",
+                                "INFO": "AC=1;AF=0.5;AN=2;BaseQRankSum=0.966;ClippingRankSum=0;DANN_score=0.317087;DP=26;ExcessHet=3.0103;FS=0;Gene=DDX11L1,LOC102725121;MLEAC=1;MLEAF=0.5;MQ=29.19;MQRankSum=-3.167;QD=28.34;ReadPosRankSum=1.114;SOR=0.941;function=intronic;gnomadGenomesAC=15338;gnomadGenomesAN=28396;gnomadGenomes_AC_Hom=1779;gnomadGenomes_AF=0.541135",
+                                "FORMAT": "GT:AB:AD:DP:GQ:PL:SAC",
+                                "NA12877 single 20180302": "0/1:0.730769:7,19:26:99:765,0,361:2,5,5,14"
+                            }
+                        ],
+                        "required": [
+                            "CHROM",
+                            "POS",
+                            "ID",
+                            "REF",
+                            "ALT",
+                            "QUAL",
+                            "FILTER",
+                            "INFO",
+                            "FORMAT",
+                            "NA12877 single 20180302"
+                        ],
+                        "properties": {
+                            "CHROM": {
+                                "$id": "#/properties/data/items/anyOf/0/properties/CHROM",
+                                "type": "string",
+                                "title": "The CHROM schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "chr1"
+                                ]
+                            },
+                            "POS": {
+                                "$id": "#/properties/data/items/anyOf/0/properties/POS",
+                                "type": "string",
+                                "title": "The POS schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "13118"
+                                ]
+                            },
+                            "ID": {
+                                "$id": "#/properties/data/items/anyOf/0/properties/ID",
+                                "type": "string",
+                                "title": "The ID schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "rs62028691"
+                                ]
+                            },
+                            "REF": {
+                                "$id": "#/properties/data/items/anyOf/0/properties/REF",
+                                "type": "string",
+                                "title": "The REF schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "A"
+                                ]
+                            },
+                            "ALT": {
+                                "$id": "#/properties/data/items/anyOf/0/properties/ALT",
+                                "type": "string",
+                                "title": "The ALT schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "G"
+                                ]
+                            },
+                            "QUAL": {
+                                "$id": "#/properties/data/items/anyOf/0/properties/QUAL",
+                                "type": "string",
+                                "title": "The QUAL schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "736.77"
+                                ]
+                            },
+                            "FILTER": {
+                                "$id": "#/properties/data/items/anyOf/0/properties/FILTER",
+                                "type": "string",
+                                "title": "The FILTER schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "PASS"
+                                ]
+                            },
+                            "INFO": {
+                                "$id": "#/properties/data/items/anyOf/0/properties/INFO",
+                                "type": "string",
+                                "title": "The INFO schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "AC=1;AF=0.5;AN=2;BaseQRankSum=0.966;ClippingRankSum=0;DANN_score=0.317087;DP=26;ExcessHet=3.0103;FS=0;Gene=DDX11L1,LOC102725121;MLEAC=1;MLEAF=0.5;MQ=29.19;MQRankSum=-3.167;QD=28.34;ReadPosRankSum=1.114;SOR=0.941;function=intronic;gnomadGenomesAC=15338;gnomadGenomesAN=28396;gnomadGenomes_AC_Hom=1779;gnomadGenomes_AF=0.541135"
+                                ]
+                            },
+                            "FORMAT": {
+                                "$id": "#/properties/data/items/anyOf/0/properties/FORMAT",
+                                "type": "string",
+                                "title": "The FORMAT schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "GT:AB:AD:DP:GQ:PL:SAC"
+                                ]
+                            },
+                            "NA12877 single 20180302": {
+                                "$id": "#/properties/data/items/anyOf/0/properties/NA12877%20single%2020180302",
+                                "type": "string",
+                                "title": "The NA12877 single 20180302 schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "0/1:0.730769:7,19:26:99:765,0,361:2,5,5,14"
+                                ]
+                            }
+                        },
+                        "additionalProperties": true
+                    }
+                ]
+            }
+        }
+    },
+    "additionalProperties": true
+}

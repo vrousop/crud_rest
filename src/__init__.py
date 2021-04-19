@@ -11,3 +11,5 @@ __DATA__ = os.path.join(__PACKAGE_DIR__, 'data')
 __VCF_FILE__ = os.path.join(__DATA__, 'NA12877_API_10.vcf')
 
 __SCHEMA__ = os.path.join(__DATA__, 'schema.json')
+
+__TESTS__ = os.path.join(__PACKAGE_DIR__, 'tests')
