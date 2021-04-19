@@ -4,7 +4,7 @@ from os import environ
 class Config:
     """Base config."""
     SECRET_KEY = environ.get('SECRET_KEY')
-    SESSION_COOKIE_NAME = environ.get('SESSION_COOKIE_NAME')
+    SESSION_COOKIE_NAME = environ.get('SESSION_COOKIE_NAME') or 's3cr3t!'
     STATIC_FOLDER = 'static'
     TEMPLATES_FOLDER = 'templates'
 
