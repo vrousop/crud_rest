@@ -40,22 +40,26 @@ def acceptxml(func):
             return json_toXML(g.payload_json)
     return return_xml
 
-def acceptjson(func):
-    @wraps(func)
-    def return_json(*args, **kwargs):
 
-        g.payload_json = retrieve_json(
-                request.base_url, 
-                int(request.args.get('page', 1)), 
-                int(request.args.get('limit', 20))
-                )    
+def acceptjson(vcf_object):
+    def in_acceptjson(func):
+        @wraps(func)
+        def return_json(*args, **kwargs):
 
-        if request.headers.get("Accept", '*/*') in ['*/*', 'application/json']:
-            # g.output = Response(response=json.dumps(g.payload_json), status=200, mimetype="application/json")
-            return Response(response=json.dumps(g.payload_json), status=200, mimetype="application/json")
-        return func()
-    
-    return return_json
+            g.payload_json = retrieve_json(
+                    request.base_url, 
+                    int(request.args.get('page', 1)), 
+                    int(request.args.get('limit', 20)), 
+                    vcf_object
+                    )    
+
+            if request.headers.get("Accept", '*/*') in ['*/*', 'application/json']:
+                # g.output = Response(response=json.dumps(g.payload_json), status=200, mimetype="application/json")
+                return Response(response=json.dumps(g.payload_json), status=200, mimetype="application/json")
+            return func()
+        
+        return return_json
+    return in_acceptjson
 
 def validate_json(func):
     @wraps(func)

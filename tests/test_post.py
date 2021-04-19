@@ -6,6 +6,7 @@ class TestPostData(BaseCase):
 
     def test_post_data(self):
         
+        
         self.maxDiff = None
         body = {
             "CHROM": "chr1",

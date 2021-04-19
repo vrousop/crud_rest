@@ -1,10 +1,10 @@
 import json
-import vcf
 import requests
 from src import __VCF_FILE__, __SCHEMA__
-from src.app.libs import retrieve_json, json_toXML, retrieve_user_data
+from src.app.libs import retrieve_json, json_toXML, retrieve_user_data, write_new_record, update_record, remove_record
 import src.app.error_handlers as error_handlers
 from src.app.middleware import authorization, accepterror, acceptjson, acceptxml, validate_json, validate_schema
+from src.app.VcfParser import VcfParser
 from flask import Flask, Response, request, g, jsonify
 from flask_cors import CORS
 import xml.etree.cElementTree as e
@@ -12,15 +12,19 @@ import xml.etree.cElementTree as e
 
 app = Flask(__name__)
 app.register_blueprint(error_handlers.blueprint)
-
+app.config['TESTING'] = True
+app.config['DEBUG'] = True
+app.config['FLASK_ENV'] = 'development'
+app.config['DEBUG'] = True  # actually I want debug to be off now
 app.config['SECRET_KEY']='Th1s1ss3cr3t'
 with open(__SCHEMA__, 'r') as fp:
     app.config['INPUT_SCHEMA'] = json.load(fp)
 
+vcf = VcfParser(__VCF_FILE__)
 
 @app.route('/retrieve_data/')
 @accepterror
-@acceptjson
+@acceptjson(vcf)
 @acceptxml
 def get_data():
     return 
@@ -28,9 +32,8 @@ def get_data():
 @app.route('/retrieve_data/<id>/')
 def get_user_data(id):
     
-    data = retrieve_user_data(id)
-    res = Response(response=json.dumps(data), status=200, mimetype="application/json") if len(data)>0 else error_handlers.not_found()
-    return res
+    data = retrieve_user_data(id, vcf)
+    return Response(response=json.dumps(data), status=200, mimetype="application/json") if len(data)>0 else error_handlers.not_found()
 
 
 
@@ -40,6 +43,9 @@ def get_user_data(id):
 @validate_schema(app.config['INPUT_SCHEMA'])
 def insert_data():
     # append new data
+    payload = json.loads(request.data)
+    write_new_record(payload, vcf)  # TODO: write to original file
+    print(vcf.df[-10:])
     message = {
            
             'message': 'Created' 
@@ -55,7 +61,9 @@ def insert_data():
 def update_data():
     # modify data
     userid= request.args.get('id')
-    
+    payload = json.loads(request.data)
+    update_record(userid, payload, vcf)  # TODO: write to original file
+    print(vcf.df[-10:]) 
     message = {
             'status': 200,
             'message': 'OK' 
@@ -68,7 +76,9 @@ def update_data():
 def delete_data():
     # modify data
     userid= request.args.get('id')
-    
+    print(vcf.df[-10:]) 
+    remove_record(userid, vcf)
+    print(vcf.df[-10:]) 
     message = {
             'status': 204,
             'message': 'No Content' 

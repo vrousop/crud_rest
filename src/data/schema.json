@@ -28,11 +28,11 @@
             "type": "integer"
         },
         "ALT": {
-            "pattern": "^[ACGT.]$",
+            "pattern": "^[ACGT.]+$",
             "type": "string"
         },
         "REF": {
-            "pattern": "^[ACGT.]$",
+            "pattern": "^[ACGT.]+$",
             "type": "string"
         },
         "ID": {
