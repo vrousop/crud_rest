@@ -14,7 +14,7 @@ default configuration:**
 **2. Copy VCF file to folder src/data**
 
 ## **Run instructions**:
-Run the bash script (run.sh) located in the "crud_rest" directory:
+Run the bash script (run.sh) located in the repo's root directory:
     
     chmod +x run.sh
     ./run.sh -f VCF_file
