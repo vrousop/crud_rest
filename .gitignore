@@ -114,6 +114,8 @@ env*
 
 # vscode
 .vscode
-*.vcf
 
+# vcf file
+*.vcf
+src/data/NA12877_API_10.vcf
 src/misc/

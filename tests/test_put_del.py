@@ -1,12 +1,11 @@
 import json
 from tests.base import BaseCase
+from src.config import Config
 
 
 class TestPutDelData(BaseCase):
 
     def test_put_data(self):
-        
-        
         self.maxDiff = None
         body = {
             "CHROM": "chr1",
@@ -15,10 +14,10 @@ class TestPutDelData(BaseCase):
             "REF": "G",
             "ID": "rs123"
         }
-        response = self.app.put('http://localhost:5000/update/testid', 
-                                headers={'Content-Type': 'application/json', 'x-api-key':'Th1s1ss3cr3t'}, 
+        response = self.app.put('http://localhost:5000/update/testid',
+                                headers={'Content-Type': 'application/json', 'x-api-key': Config.SECRET_KEY},
                                 data=json.dumps(body))
-        expected ={
+        expected = {
             "status": 404,
             "message": "Not Found"
         }
@@ -27,16 +26,13 @@ class TestPutDelData(BaseCase):
         self.assertEqual(404, response.status_code)
 
     def test_del_data_error(self):
-        
         self.maxDiff = None
-  
-        response = self.app.delete('http://localhost:5000/delete/rs123/', 
-                            headers={'x-api-key':'Th1s1ss3cr3t'})
-        expected ={
+
+        response = self.app.delete('http://localhost:5000/delete/rs123/',
+                                   headers={'x-api-key': Config.SECRET_KEY})
+        expected = {
             "status": 404,
             "message": "Not Found"
         }
         self.assertEqual(expected, response.json)
         self.assertEqual(404, response.status_code)
-
-    

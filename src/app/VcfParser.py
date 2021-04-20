@@ -1,6 +1,10 @@
 import pandas as pd
 
-class VcfParser():
+
+class VcfParser:
+    """
+    Class for parsing of VCF file
+    """
     def __init__(self, vcf_path):
         self.vcf_path = vcf_path
         self.read()
@@ -20,15 +24,15 @@ class VcfParser():
     def read(self):
         self.header = self.read_header()
         self.df = self.read_content()
-        self.df = self.df.rename(columns={'#CHROM':'CHROM'}, inplace=False)
-
+        self.df = self.df.rename(columns={'#CHROM': 'CHROM'}, inplace=False)
 
     def write(self):
         # Write header
         with open(self.vcf_path, 'w') as new_vcf:
             for h in self.header:
                 new_vcf.write(h[0])
-        self.df = self.df.rename(columns={'CHROM':'#CHROM'}, inplace=False)
+
         # Append modified content
+        self.df = self.df.rename(columns={'CHROM': '#CHROM'}, inplace=False)
         self.df.to_csv(self.vcf_path, mode='a', header=True, index=False, sep='\t')
-        self.df = self.df.rename(columns={'#CHROM':'CHROM'}, inplace=False)
+        self.df = self.df.rename(columns={'#CHROM': 'CHROM'}, inplace=False)

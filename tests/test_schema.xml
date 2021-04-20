@@ -1,246 +1,39 @@
-<?xml version="1.0" ?>
-<root>
-    <key name="$schema">http://json-schema.org/draft-07/schema</key>
-    <key name="$id">http://example.com/example.json</key>
-    <type>object</type>
-    <title>The root schema</title>
-    <description>The root schema comprises the entire JSON document.</description>
-    <default/>
-    <examples>
-        <item>
-            <previous_url>http://0.0.0.0:5000/retrieve_data/?page=1&amp;limit=2</previous_url>
-            <next_url>http://0.0.0.0:5000/retrieve_data/?page=3&amp;limit=2</next_url>
-            <data>
-                <item>
-                    <CHROM>chr1</CHROM>
-                    <POS>13118</POS>
-                    <ID>rs62028691</ID>
-                    <REF>A</REF>
-                    <ALT>G</ALT>
-                    <QUAL>736.77</QUAL>
-                    <FILTER>PASS</FILTER>
-                    <INFO>AC=1;AF=0.5;AN=2;BaseQRankSum=0.966;ClippingRankSum=0;DANN_score=0.317087;DP=26;ExcessHet=3.0103;FS=0;Gene=DDX11L1,LOC102725121;MLEAC=1;MLEAF=0.5;MQ=29.19;MQRankSum=-3.167;QD=28.34;ReadPosRankSum=1.114;SOR=0.941;function=intronic;gnomadGenomesAC=15338;gnomadGenomesAN=28396;gnomadGenomes_AC_Hom=1779;gnomadGenomes_AF=0.541135</INFO>
-                    <FORMAT>GT:AB:AD:DP:GQ:PL:SAC</FORMAT>
-                    <NA12877_single_20180302>0/1:0.730769:7,19:26:99:765,0,361:2,5,5,14</NA12877_single_20180302>
-                </item>
-                <item>
-                    <CHROM>chr1</CHROM>
-                    <POS>13656</POS>
-                    <ID>rs1263393206</ID>
-                    <REF>CAG</REF>
-                    <ALT>C</ALT>
-                    <QUAL>196.73</QUAL>
-                    <FILTER>PASS</FILTER>
-                    <INFO>AC=1;AF=0.5;AN=2;BaseQRankSum=-3.067;ClippingRankSum=.;DP=12;ExcessHet=3.0103;FS=0;Gene=DDX11L1,LOC102725121;MLEAC=1;MLEAF=0.5;MQ=24.17;MQRankSum=-0.825;QD=16.39;ReadPosRankSum=0.307;SOR=0.693;function=non-coding exon,intronic,splicing,splicing-ACMG;gnomadExomes_AC=670;gnomadExomes_AC_Hemi=0;gnomadExomes_AC_Hom=20;gnomadExomes_AF=0.0295331;gnomadExomes_AN=23940;gnomadGenomesAC=13044;gnomadGenomesAN=26616;gnomadGenomes_AC_Hom=99;gnomadGenomes_AF=0.489766</INFO>
-                    <FORMAT>GT:AB:AD:DP:GQ:PL:SAC</FORMAT>
-                    <NA12877_single_20180302>0/1:0.5:6,6:12:99:234,0,260:1,5,1,5</NA12877_single_20180302>
-                </item>
-            </data>
-        </item>
-    </examples>
-    <required>
-        <item>previous_url</item>
-        <item>next_url</item>
-        <item>data</item>
-    </required>
-    <properties>
-        <previous_url>
-            <key name="$id">#/properties/previous_url</key>
-            <type>string</type>
-            <title>The previous_url schema</title>
-            <description>An explanation about the purpose of this instance.</description>
-            <default/>
-            <examples>
-                <item>http://0.0.0.0:5000/retrieve_data/?page=1&amp;limit=2</item>
-            </examples>
-        </previous_url>
-        <next_url>
-            <key name="$id">#/properties/next_url</key>
-            <type>string</type>
-            <title>The next_url schema</title>
-            <description>An explanation about the purpose of this instance.</description>
-            <default/>
-            <examples>
-                <item>http://0.0.0.0:5000/retrieve_data/?page=3&amp;limit=2</item>
-            </examples>
-        </next_url>
-        <data>
-            <key name="$id">#/properties/data</key>
-            <type>array</type>
-            <title>The data schema</title>
-            <description>An explanation about the purpose of this instance.</description>
-            <default/>
-            <examples>
-                <item>
-                    <item>
-                        <CHROM>chr1</CHROM>
-                        <POS>13118</POS>
-                        <ID>rs62028691</ID>
-                        <REF>A</REF>
-                        <ALT>G</ALT>
-                        <QUAL>736.77</QUAL>
-                        <FILTER>PASS</FILTER>
-                        <INFO>AC=1;AF=0.5;AN=2;BaseQRankSum=0.966;ClippingRankSum=0;DANN_score=0.317087;DP=26;ExcessHet=3.0103;FS=0;Gene=DDX11L1,LOC102725121;MLEAC=1;MLEAF=0.5;MQ=29.19;MQRankSum=-3.167;QD=28.34;ReadPosRankSum=1.114;SOR=0.941;function=intronic;gnomadGenomesAC=15338;gnomadGenomesAN=28396;gnomadGenomes_AC_Hom=1779;gnomadGenomes_AF=0.541135</INFO>
-                        <FORMAT>GT:AB:AD:DP:GQ:PL:SAC</FORMAT>
-                        <NA12877_single_20180302>0/1:0.730769:7,19:26:99:765,0,361:2,5,5,14</NA12877_single_20180302>
-                    </item>
-                    <item>
-                        <CHROM>chr1</CHROM>
-                        <POS>13656</POS>
-                        <ID>rs1263393206</ID>
-                        <REF>CAG</REF>
-                        <ALT>C</ALT>
-                        <QUAL>196.73</QUAL>
-                        <FILTER>PASS</FILTER>
-                        <INFO>AC=1;AF=0.5;AN=2;BaseQRankSum=-3.067;ClippingRankSum=.;DP=12;ExcessHet=3.0103;FS=0;Gene=DDX11L1,LOC102725121;MLEAC=1;MLEAF=0.5;MQ=24.17;MQRankSum=-0.825;QD=16.39;ReadPosRankSum=0.307;SOR=0.693;function=non-coding exon,intronic,splicing,splicing-ACMG;gnomadExomes_AC=670;gnomadExomes_AC_Hemi=0;gnomadExomes_AC_Hom=20;gnomadExomes_AF=0.0295331;gnomadExomes_AN=23940;gnomadGenomesAC=13044;gnomadGenomesAN=26616;gnomadGenomes_AC_Hom=99;gnomadGenomes_AF=0.489766</INFO>
-                        <FORMAT>GT:AB:AD:DP:GQ:PL:SAC</FORMAT>
-                        <NA12877_single_20180302>0/1:0.5:6,6:12:99:234,0,260:1,5,1,5</NA12877_single_20180302>
-                    </item>
-                </item>
-            </examples>
-            <additionalItems>True</additionalItems>
-            <items>
-                <key name="$id">#/properties/data/items</key>
-                <anyOf>
-                    <item>
-                        <key name="$id">#/properties/data/items/anyOf/0</key>
-                        <type>object</type>
-                        <title>The first anyOf schema</title>
-                        <description>An explanation about the purpose of this instance.</description>
-                        <default/>
-                        <examples>
-                            <item>
-                                <CHROM>chr1</CHROM>
-                                <POS>13118</POS>
-                                <ID>rs62028691</ID>
-                                <REF>A</REF>
-                                <ALT>G</ALT>
-                                <QUAL>736.77</QUAL>
-                                <FILTER>PASS</FILTER>
-                                <INFO>AC=1;AF=0.5;AN=2;BaseQRankSum=0.966;ClippingRankSum=0;DANN_score=0.317087;DP=26;ExcessHet=3.0103;FS=0;Gene=DDX11L1,LOC102725121;MLEAC=1;MLEAF=0.5;MQ=29.19;MQRankSum=-3.167;QD=28.34;ReadPosRankSum=1.114;SOR=0.941;function=intronic;gnomadGenomesAC=15338;gnomadGenomesAN=28396;gnomadGenomes_AC_Hom=1779;gnomadGenomes_AF=0.541135</INFO>
-                                <FORMAT>GT:AB:AD:DP:GQ:PL:SAC</FORMAT>
-                                <NA12877_single_20180302>0/1:0.730769:7,19:26:99:765,0,361:2,5,5,14</NA12877_single_20180302>
-                            </item>
-                        </examples>
-                        <required>
-                            <item>CHROM</item>
-                            <item>POS</item>
-                            <item>ID</item>
-                            <item>REF</item>
-                            <item>ALT</item>
-                            <item>QUAL</item>
-                            <item>FILTER</item>
-                            <item>INFO</item>
-                            <item>FORMAT</item>
-                            <item>NA12877 single 20180302</item>
-                        </required>
-                        <properties>
-                            <CHROM>
-                                <key name="$id">#/properties/data/items/anyOf/0/properties/CHROM</key>
-                                <type>string</type>
-                                <title>The CHROM schema</title>
-                                <description>An explanation about the purpose of this instance.</description>
-                                <default/>
-                                <examples>
-                                    <item>chr1</item>
-                                </examples>
-                            </CHROM>
-                            <POS>
-                                <key name="$id">#/properties/data/items/anyOf/0/properties/POS</key>
-                                <type>string</type>
-                                <title>The POS schema</title>
-                                <description>An explanation about the purpose of this instance.</description>
-                                <default/>
-                                <examples>
-                                    <item>13118</item>
-                                </examples>
-                            </POS>
-                            <ID>
-                                <key name="$id">#/properties/data/items/anyOf/0/properties/ID</key>
-                                <type>string</type>
-                                <title>The ID schema</title>
-                                <description>An explanation about the purpose of this instance.</description>
-                                <default/>
-                                <examples>
-                                    <item>rs62028691</item>
-                                </examples>
-                            </ID>
-                            <REF>
-                                <key name="$id">#/properties/data/items/anyOf/0/properties/REF</key>
-                                <type>string</type>
-                                <title>The REF schema</title>
-                                <description>An explanation about the purpose of this instance.</description>
-                                <default/>
-                                <examples>
-                                    <item>A</item>
-                                </examples>
-                            </REF>
-                            <ALT>
-                                <key name="$id">#/properties/data/items/anyOf/0/properties/ALT</key>
-                                <type>string</type>
-                                <title>The ALT schema</title>
-                                <description>An explanation about the purpose of this instance.</description>
-                                <default/>
-                                <examples>
-                                    <item>G</item>
-                                </examples>
-                            </ALT>
-                            <QUAL>
-                                <key name="$id">#/properties/data/items/anyOf/0/properties/QUAL</key>
-                                <type>string</type>
-                                <title>The QUAL schema</title>
-                                <description>An explanation about the purpose of this instance.</description>
-                                <default/>
-                                <examples>
-                                    <item>736.77</item>
-                                </examples>
-                            </QUAL>
-                            <FILTER>
-                                <key name="$id">#/properties/data/items/anyOf/0/properties/FILTER</key>
-                                <type>string</type>
-                                <title>The FILTER schema</title>
-                                <description>An explanation about the purpose of this instance.</description>
-                                <default/>
-                                <examples>
-                                    <item>PASS</item>
-                                </examples>
-                            </FILTER>
-                            <INFO>
-                                <key name="$id">#/properties/data/items/anyOf/0/properties/INFO</key>
-                                <type>string</type>
-                                <title>The INFO schema</title>
-                                <description>An explanation about the purpose of this instance.</description>
-                                <default/>
-                                <examples>
-                                    <item>AC=1;AF=0.5;AN=2;BaseQRankSum=0.966;ClippingRankSum=0;DANN_score=0.317087;DP=26;ExcessHet=3.0103;FS=0;Gene=DDX11L1,LOC102725121;MLEAC=1;MLEAF=0.5;MQ=29.19;MQRankSum=-3.167;QD=28.34;ReadPosRankSum=1.114;SOR=0.941;function=intronic;gnomadGenomesAC=15338;gnomadGenomesAN=28396;gnomadGenomes_AC_Hom=1779;gnomadGenomes_AF=0.541135</item>
-                                </examples>
-                            </INFO>
-                            <FORMAT>
-                                <key name="$id">#/properties/data/items/anyOf/0/properties/FORMAT</key>
-                                <type>string</type>
-                                <title>The FORMAT schema</title>
-                                <description>An explanation about the purpose of this instance.</description>
-                                <default/>
-                                <examples>
-                                    <item>GT:AB:AD:DP:GQ:PL:SAC</item>
-                                </examples>
-                            </FORMAT>
-                            <NA12877_single_20180302>
-                                <key name="$id">#/properties/data/items/anyOf/0/properties/NA12877%20single%2020180302</key>
-                                <type>string</type>
-                                <title>The NA12877 single 20180302 schema</title>
-                                <description>An explanation about the purpose of this instance.</description>
-                                <default/>
-                                <examples>
-                                    <item>0/1:0.730769:7,19:26:99:765,0,361:2,5,5,14</item>
-                                </examples>
-                            </NA12877_single_20180302>
-                        </properties>
-                        <additionalProperties>True</additionalProperties>
-                    </item>
-                </anyOf>
-            </items>
-        </data>
-    </properties>
-    <additionalProperties>True</additionalProperties>
-</root>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="CHROM" type="xs:string"/>
+  <xs:element name="POS" type="xs:long"/>
+  <xs:element name="ID" type="xs:string"/>
+  <xs:element name="REF" type="xs:string"/>
+  <xs:element name="ALT" type="xs:string"/>
+  <xs:element name="QUAL" type="xs:float"/>
+  <xs:element name="FILTER" type="xs:string"/>
+  <xs:element name="INFO" type="xs:string"/>
+  <xs:element name="FORMAT" type="xs:string"/>
+  <xs:element name="NA12877_single_20180302" type="xs:string"/>
+  <xs:element name="previous_url" type="xs:anyURI"/>
+  <xs:element name="next_url" type="xs:anyURI"/>
+  <xs:element name="data">
+    <xs:complexType>
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="CHROM"/>
+        <xs:element ref="POS"/>
+        <xs:element ref="ID"/>
+        <xs:element ref="REF"/>
+        <xs:element ref="ALT"/>
+        <xs:element ref="QUAL"/>
+        <xs:element ref="FILTER"/>
+        <xs:element ref="INFO"/>
+        <xs:element ref="FORMAT"/>
+        <xs:element ref="NA12877_single_20180302"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="root">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="previous_url"/>
+        <xs:element ref="next_url"/>
+        <xs:element ref="data"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
