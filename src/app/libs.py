@@ -1,3 +1,4 @@
+import argparse
 import json
 import xml.etree.cElementTree as e
 
@@ -118,3 +119,24 @@ def check_if_record(rec_id, vcf_object):
     """
     index = vcf_object.df.index[vcf_object.df['ID'] == rec_id].to_list()
     return True if len(index) else False
+
+
+def parse_args():
+    """
+    Command Line Argument parser.
+    """
+    parser = argparse.ArgumentParser(
+        description="""
+        Short description of how package works.
+        """
+    )
+    parser.add_argument(
+        '-f',
+        '--filename',
+        type=str,
+        help="""
+            Argument that takes the name of VCF file.
+            """,
+        required=True
+    )
+    return parser.parse_args()
