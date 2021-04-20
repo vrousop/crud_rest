@@ -61,8 +61,20 @@ For running in Windows you can run the following commands in the
 setup.py file location:
 ```
 python3 -m venv env
-env\bin\activate
+env\Scripts\activate
 python -m pip install -U pip
 pip install -e .
 run -f VCF_file
 ```
+
+
+## **Requests details**:
+
+| ROUTE               | METHOD | ARGUMENTS                        | DESCRIPTION                                     |
+|---------------------|--------|----------------------------------|-------------------------------------------------|
+| /retrieve_data      | GET    | Header: Accept Params: id, page  | Get all records of VCF file in paginated way    |
+| /retrieve_data/<id> | GET    |                                  | Get record of VCF file based on ID=<id>         |
+| /insert             | POST   | Header: x-api-key                | Add new record to VCF file                      |
+| /update/<id>        | PUT    | Header: x-api-key                | Update existing record of VCF file with ID=<id> |
+| /delete/<id>        | DELETE | Header: x-api-key                | Delete record of VCF file with ID=<id>          |
+
