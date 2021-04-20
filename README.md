@@ -9,17 +9,17 @@ default configuration:**
 
 - `SECRET_KEY` (secret key for authorization - default: 's3cr3t!')
 - `CURRENT_SERVER` (host url - default: '0.0.0.0')
+- `CURRENT_PORT` (url port - default: 5000)
 
 **2. Copy VCF file to folder src/data**
 
 ## **Run instructions**:
 Run the bash script (run.sh) located in the "crud_rest" directory:
-
-VCF_file example: "file.vcf"
-
     
     chmod +x run.sh
     ./run.sh -f VCF_file
+
+VCF_file example: "file.vcf"
     
 OR run following commands:
 
